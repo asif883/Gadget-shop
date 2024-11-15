@@ -4,7 +4,13 @@ import img from '../assets/profile.webp'
 import { Link } from 'react-router-dom';
 
 const UserLoggedIn = () => {
-    const {user} = useContext(AuthContext)
+    const {user, logOut} = useContext(AuthContext)
+
+    const handleLogOut=() =>{
+        logOut()
+        .then()
+        .catch()
+    }
     return (
         <div>
             
@@ -14,7 +20,7 @@ const UserLoggedIn = () => {
                     <div tabIndex={0} role="button" className=" "><img className='w-10 h-10 border border-gray-600 p-1 rounded-full' src={img} alt="" /></div>
                     <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                         <Link>Dashboard</Link>
-                        <button className='btn'>LogOut</button>
+                        <button onClick={handleLogOut} className='btn'>LogOut</button>
                     </ul>
                  </div> 
                 :
