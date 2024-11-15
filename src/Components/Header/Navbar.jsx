@@ -1,8 +1,11 @@
-import React from 'react';
+
 import { Link, NavLink } from 'react-router-dom';
 import './Nav.css'
+import UserLoggedIn from '../UserLoggedIn';
+
 
 const Navbar = () => {
+   
    
     return (
         <div className="navbar bg-base-300 px-4">
@@ -58,12 +61,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end ">
-                    <Link to='/login'>
-                        <button className='border-2 border-[#FFA43A] rounded-xl mr-3 text-[#FFA43A] px-3 py-2 font-semibold'>Login</button>
-                    </Link>
-                    <Link to='/register'>
-                        <button className='border-2 border-[#FFA43A] rounded-xl mr-3 text-[#FFA43A] px-3 py-2 font-semibold'>Register</button>
-                    </Link>
+                   <UserLoggedIn></UserLoggedIn>
                 </div>
      </div>
     );
