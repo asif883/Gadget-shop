@@ -24,9 +24,9 @@ const UserLoggedIn = () => {
                             <img className='w-10 h-10 border border-gray-600 p-1 rounded-full' src={img} alt="" />
                         }
                     </div>
-                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                        <Link>Dashboard</Link>
-                        <button onClick={handleLogOut} className='btn'>LogOut</button>
+                    <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1]  p-2 shadow">
+                        <Link to='/dashboard' className='font-medium text-orange-500 border text-start border-orange-400 px-3 py-1 mb-1 rounded-xl'>Dashboard</Link>
+                        <button onClick={handleLogOut} className='font-medium text-orange-500 border rounded-xl text-start border-orange-400 px-3 py-1'>LogOut</button>
                     </ul>
                  </div> 
                 :
