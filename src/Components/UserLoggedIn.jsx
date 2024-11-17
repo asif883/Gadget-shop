@@ -17,7 +17,13 @@ const UserLoggedIn = () => {
             {
                 user?
                 <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className=" "><img className='w-10 h-10 border border-gray-600 p-1 rounded-full' src={img} alt="" /></div>
+                    <div tabIndex={0} role="button" className=" ">
+                        {
+                            user?.photoURL ? <img className='w-10 h-10 border border-gray-600 p-1 rounded-full' src={user?.photoURL} alt={user?.email} />
+                            :
+                            <img className='w-10 h-10 border border-gray-600 p-1 rounded-full' src={img} alt="" />
+                        }
+                    </div>
                     <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                         <Link>Dashboard</Link>
                         <button onClick={handleLogOut} className='btn'>LogOut</button>
