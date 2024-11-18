@@ -16,7 +16,14 @@ const Register = () => {
 
     const handleRegister = (data)=>{
       
-        // console.log(email ,password);
+        const email = data.email;
+        const role  =  data.role;
+        const status = role === 'buyer' ? "approved" : 'Pending'
+        const wishList =[]
+
+        const userData ={ email, role, status, wishList }
+        
+        console.log(userData);
 
         createUser(data.email, data.password)
         .then(result =>{ 
@@ -122,6 +129,23 @@ const Register = () => {
                                 <p className='text-red-500 text-sm font-light'>Both password must match</p>
                             )
                         }           
+                    </div>
+
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-xl font-semibold">Role</span>
+                        </label>
+                        <select className="select w-full input input-bordered border border-orange-300" 
+                        {...register('role', {required: true})} 
+                        >
+                            <option value='buyer'>Buyer</option>
+                            <option value='seller'>Seller</option>
+                          </select>
+                            {
+                                errors.role &&(
+                                    <p className='text-red-500 text-sm font-light'>You have to select a role</p>
+                                )
+                            }
                     </div>
                     
                     <div className="form-control mt-6">

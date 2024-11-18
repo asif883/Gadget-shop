@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Sidebar from '../Components/DashboardComponents/Sidebar';
-import Overview from '../Components/DashboardComponents/Overview';
+
 
 
 const Dashboard = () => {
@@ -23,28 +23,6 @@ const Dashboard = () => {
         </div>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-        // <div className='grid grid-cols-12'>
-        //     {/* left side */}
-        //     <div className='col-span-2'>
-        //         <Sidebar></Sidebar>
-        //     </div>
-
-                   
-        //     <div className='col-span-10'>
-        //         <Outlet></Outlet>
-        //     </div>
-        // </div>
     );
 };
 
