@@ -64,10 +64,10 @@ const AuthProvider = ({children}) => {
         return signInWithPopup( auth , googleProvider )
      }
 
-    const authInfo ={
-        createUser,
+    const authInfo ={ 
         user,
         loading,
+        createUser,
         logOut,
         logIn,
         googleLogin
