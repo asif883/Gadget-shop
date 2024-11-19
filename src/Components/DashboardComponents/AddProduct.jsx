@@ -1,7 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { LuGalleryHorizontal } from 'react-icons/lu';
-import SectionTitle from '../../SharedItems/SectionTitle';
+
+import UseAuth from '../../Hooks/UseAuth';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+
 
 const AddProduct = () => {
     const {
@@ -10,18 +13,38 @@ const AddProduct = () => {
         formState:{errors}
     } = useForm()
 
+    const {user} =UseAuth()
+   
     const handleAddProduct =(data) =>{
         const title = data.title
         const brand = data.brand
-        const price = data.price
-        const stock = data.stock
+        const price = parseFloat(data.price)
+        const stock = parseFloat(data.stock)
         const imageURL = data. imageURL
         const category= data.category
+        const sellerEmail = user?.email
         const description = data.description
 
-        const productInfo ={title, brand, price, stock, imageURL, category, description}
+        const productInfo ={title, brand, price, stock, imageURL, category, sellerEmail, description}
 
-        console.log(productInfo);
+        const token = localStorage.getItem('access-token')
+
+        axios.post('http://localhost:3000/add-products', productInfo, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(res =>{
+            console.log(res.data)
+            if(res.data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Product added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                  }); 
+            }
+            
+        })
     }
     return (
         <div>
