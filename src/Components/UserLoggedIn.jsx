@@ -25,7 +25,7 @@ const UserLoggedIn = () => {
                         }
                     </div>
                     <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1]  p-2 shadow">
-                        <Link to='/dashboard' className='font-medium text-orange-500 border text-start border-orange-400 px-3 py-1 mb-1 rounded-xl'>Dashboard</Link>
+                        <Link to='dashboard/dashboard/overview' className='font-medium text-orange-500 border text-start border-orange-400 px-3 py-1 mb-1 rounded-xl'>Dashboard</Link>
                         <button onClick={handleLogOut} className='font-medium text-orange-500 border rounded-xl text-start border-orange-400 px-3 py-1'>LogOut</button>
                     </ul>
                  </div> 

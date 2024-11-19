@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import UseAuth from '../Hooks/UseAuth';
 import Swal from 'sweetalert2';
 import img from '../assets/Sign up-rafiki.svg'
+import axios from 'axios';
 
 const Register = () => {
     const {createUser} = UseAuth()
+    const navigate = useNavigate()
 
     const {
          register,
@@ -23,17 +25,20 @@ const Register = () => {
 
         const userData ={ email, role, status, wishList }
         
-        console.log(userData);
+        // console.log(userData);
 
         createUser(data.email, data.password)
-        .then(result =>{ 
-            console.log(result);         
-            Swal.fire({
-                title: 'Success!',
-                text: 'Registration Successful',
-                icon: 'success',
-                confirmButtonText: 'Ok'
-              });
+        .then(()=>{
+            axios.post('http://localhost:3000/users',userData)
+        }).then((res)=>{ 
+            console.log(res);
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Registration Successful',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                  }); 
+            navigate("/")       
         })
         .catch (error =>{
             console.error( error)
